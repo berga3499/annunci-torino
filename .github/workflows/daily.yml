@@ -1,0 +1,27 @@
+name: Annunci Torino daily
+
+# Esegue alle 07:30 UTC = 09:30 ora italiana (estate, CEST=UTC+2)
+# In inverno (CET=UTC+1) sarà alle 08:30 italiane. Vedi note nel README.
+on:
+  schedule:
+    - cron: "30 7 * * *"
+  workflow_dispatch:   # permette esecuzione manuale dalla UI di GitHub
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run bot
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python bot_annunci_torino_gh.py
