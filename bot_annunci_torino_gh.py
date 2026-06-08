@@ -36,9 +36,11 @@ MAX_STATE_IDS = 500  # mantiene gli ultimi 500 ID per non superare i 4096 char T
 
 MACROZONE_TORINO_SUD = {
     "Lingotto, Nizza Millefonti",
-    "Mirafiori Nord, Santa Rita",
+    "Santa Rita, Mirafiori Nord",
     "Mirafiori Sud",
     "Filadelfia",
+    "Crocetta, San Secondo",
+    "Borgo San Paolo, Cenisia",
 }
 COMUNI_CINTURA_SUD = {"Moncalieri", "Nichelino", "Beinasco"}
 
